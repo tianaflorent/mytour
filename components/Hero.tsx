@@ -187,7 +187,7 @@ export default function Hero() {
       {photos.map((photo, index) => (
         <div
           key={index}
-          className="flex-shrink-0 w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200"
+          className="shrink-0 w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200"
         >
           <img
             src={photo.src}
@@ -207,7 +207,7 @@ export default function Hero() {
       {/* Carte CTA - Voir toutes les excursions */}
       <a
   href="/Excursions"
-  className="flex-shrink-0 w-80 mx-4 rounded-2xl shadow-lg
+  className="shrink-0 w-80 mx-4 rounded-2xl shadow-lg
              overflow-hidden relative group"
 >
   {/* Image plein cadre */}
@@ -346,11 +346,14 @@ export default function Hero() {
           <div
             key={index}
             data-index={index}
-            ref={(el) => (cardsRef.current[index] = el)}
-            className={`rounded-3xl p-8 bg-gradient-to-br ${bgGradient} backdrop-blur-xl shadow-xl border border-black/10 transition-transform duration-300 ${
-              visible[index] ? "opacity-100 animate-fade-up" : "opacity-0"
+            ref={(el) => {
+              cardsRef.current[index] = el;
+            }}
+            className={`rounded-3xl p-8 bg-linear-to-br ${bgGradient} backdrop-blur-xl shadow-xl border border-black/10 transition-transform duration-300 ${
+            visible[index] ? "opacity-100 animate-fade-up" : "opacity-0"
             }`}
-          >
+            >
+
             <div
               className="w-12 h-12 flex items-center justify-center rounded-full mb-4"
               style={{ color: iconColor }}
