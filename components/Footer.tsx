@@ -32,7 +32,7 @@ export default function Footer() {
 
                 <li className="flex items-center justify-center gap-3">
                   <Mail size={18} />
-                  <span>Avaratratour@gmail.com</span>
+                  <span>tavaratratour@gmail.com</span>
                 </li>
 
                 <li className="flex items-center justify-center gap-3">
@@ -63,7 +63,7 @@ export default function Footer() {
 
             {/* SEPARATEUR */}
             <div className="border-t border-gray-500 pt-4 text-sm text-gray-300">
-              © 2026  AvaratraTour. Tous droits réservés.
+              © 2026  TavaratraTour. Tous droits réservés.
             </div>
 
           </div>
