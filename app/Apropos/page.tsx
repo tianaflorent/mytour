@@ -4,6 +4,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Leaf, ShieldCheck, SlidersHorizontal } from "lucide-react";
 
+import { Hind } from "next/font/google";
+
+const mainFont = Hind({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600"],
+});
+
 
 const heroImages = [
   "/images/3.jpg",
@@ -22,7 +29,7 @@ export default function AproposPage() {
   }, []);
 
   return (
-    <main className="pt-9 pb-16 bg-white text-gray-800">
+    <main className="pt-10 pb-16 bg-white text-gray-800">
 
       {/* ===== HERO ANIMÉ (MODIFIÉ SEULEMENT ICI) ===== */}
       <section className="relative h-80 w-full rounded-3xl overflow-hidden">
@@ -35,7 +42,7 @@ export default function AproposPage() {
           >
             <Image
               src={img}
-              alt="À propos Avaratra Tour"
+              alt="À propos Tavaratra Tour"
               fill
               className={`object-cover transition-transform duration-6000 ${
                 index === current ? "scale-105" : "scale-100"
@@ -48,14 +55,16 @@ export default function AproposPage() {
         <div className="absolute inset-0 bg-black/50 z-10" />
 
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 text-white">
-          <h1 className="text-4xl font-extrabold mb-3">
-            À propos de{" "}
-            <span className="text-[#F0C300]">Avaratra Tour</span>
-          </h1>
-          <p className="max-w-2xl text-lg">
-            Votre agence locale experte des excursions et voyages
-            au nord de Madagascar.
-          </p>
+          <div className={mainFont.className}>
+            <h1 className="text-4xl font-extrabold mb-3">
+              À propos de{" "}
+            <span className="text-[#F0C300]">Tavaratra Tour</span>
+              </h1>
+            <p className="max-w-2xl text-lg">
+              Votre agence locale experte des excursions et voyages
+              au nord de Madagascar.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -69,7 +78,7 @@ export default function AproposPage() {
     </h2>
 
     <p className="text-gray-700 leading-relaxed">
-      Chez Avaratra Tour, nous mettons notre passion et notre expertise
+      Chez Tavaratra Tour, nous mettons notre passion et notre expertise
       à votre service pour vous faire découvrir les merveilles naturelles,
       culturelles et historiques du nord de Madagascar.
     </p>
