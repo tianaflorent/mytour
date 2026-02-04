@@ -218,7 +218,7 @@ export default function GaleriesPage() {
                 <div className="mt-4 flex justify-end">
                   <button
                     onClick={() => toggleAlbum(albumIndex)}
-                    className="text-sm font-semibold text-[#F0C300] hover:underline"
+                    className="text-sm font-semibold text-emerald-600 hover:underline"
                   >
                     Voir moins
                   </button>
