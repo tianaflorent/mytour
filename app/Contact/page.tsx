@@ -3,6 +3,13 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
+import { Hind } from "next/font/google";
+
+const mainFont = Hind({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600"],
+});
+
 export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,7 +25,7 @@ export default function ContactPage() {
     setLoading(true);
 
     // Préparer le message WhatsApp
-    const text = `Bonjour, je m'appelle ${name}%0AEmail: ${email}%0ATéléphone: ${phone}%0AMessage: ${message}`;
+    const text = `Bonjour, je m'appelle ${name}___Email: ${email}___Téléphone: ${phone}___Message: ${message}`;
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
     // Petite pause pour montrer l'animation
@@ -32,7 +39,7 @@ export default function ContactPage() {
     <main className="pb-10 bg-linear-to-br from-orange-50 via-white to-blue-50">
 
       {/* HERO */}
-      <section className="relative h-75 mt-10 rounded-3xl overflow-hidden border border-gray-300 shadow-md">
+      <section className="relative h-75 mt-12 rounded-3xl overflow-hidden border border-gray-300 shadow-md">
         <img
           src="/images/2.jpg"
           alt="Contact"
@@ -40,10 +47,12 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 h-full flex flex-col justify-center px-6 text-white">
-          <h1 className="text-3xl font-bold mb-2">Contactez-nous</h1>
-          <p className="text-sm leading-relaxed max-w-sm">
-            Notre équipe est à votre disposition pour répondre à toutes vos questions
-          </p>
+          <div className={mainFont.className}>
+            <h1 className="text-3xl font-bold mb-2">Contactez-nous</h1>
+            <p className="text-sm leading-relaxed max-w-sm">
+              Notre équipe est à votre disposition pour répondre à toutes vos questions
+            </p>
+          </div>
         </div>
       </section>
 
