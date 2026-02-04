@@ -5,20 +5,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+import { Hind } from "next/font/google";
+
+const mainFont = Hind({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600"],
+});
+
 const excursions = [
   {
     title: "Mer d’Émeraude",
     images: [
       "/images/emerald3.jpg",
       "/images/emerald5.jpg",
-      "/images/emerald4.WEBP",
+    
     ],
     shortDesc:
       "Explorez les eaux turquoise cristallines juste au nord de Diego‑Suarez.",
     fullDesc:
       "Cette excursion vous emmène sur la lagune de la Mer d’Émeraude, idéale pour nager, faire du snorkeling et observer les coraux dans un cadre spectaculaire. Vous naviguez depuis Ramena ou Cap d’Ambre, accompagné d’un guide local expérimenté.",
-    maxPeople: 7,
-    price: 60,
+    maxPeople: 5,
+    price: 80,
   },
   {
     title: "Tsingy rouge",
@@ -27,16 +34,16 @@ const excursions = [
       "Découvrez les formations rocheuses rouges uniques sculptées par le temps.",
     fullDesc:
       "Le Red Tsingy est une merveille géologique de Madagascar, résultat de l’érosion continue des roches sédimentaires. L’excursion inclut un guide local qui vous montre les passages secrets et panoramas étonnants.",
-    maxPeople: 7,
-    price: 60,
+    maxPeople: 5,
+    price: 85,
   },
   {
     title: "Nosy Hara",
     images: ["/images/nosyhara1.jpg", "/images/nosyhara2.jpg", "/images/nosyhara3.jpg"],
     shortDesc:
-      "Partez en randonnée dans un parc national riche en cascades et faune.",
+      "Nosy Hara, joyau du nord de Madagascar, offre des eaux turquoise, des falaises karstiques et une biodiversité marine unique.",
     fullDesc:
-      "La Montagne d’Ambre est un parc verdoyant à l’intérieur des terres près de Diego‑Suarez. Cette excursion vous fait traverser des forêts tropicales, des cascades naturelles, et des points de vue exceptionnels.",
+      "Les falaises et îlots de l’archipel invitent également à l’exploration et à la randonnée, offrant des panoramas à couper le souffle. Nosy Hara reste un lieu préservé, loin de l’agitation, idéal pour les amoureux de la nature, les photographes et tous ceux qui cherchent une expérience authentique et inoubliable à Madagascar.",
     maxPeople: 7,
     price: 60,
   },
@@ -44,21 +51,21 @@ const excursions = [
     title: "Montagne d'Ambre",
     images: ["/images/brook1.jpg", "/images/cameleon1.jpg", "/images/mda.jpg"],
     shortDesc:
-      "Partez en randonnée dans un parc national riche en cascades et faune.",
+      "Partez en randonnée dans un parc national riche en cascades, faune et flore.",
     fullDesc:
       "La Montagne d’Ambre est un parc verdoyant à l’intérieur des terres près de Diego‑Suarez. Cette excursion vous fait traverser des forêts tropicales, des cascades naturelles, et des points de vue exceptionnels.",
-    maxPeople: 7,
-    price: 60,
+    maxPeople: 6,
+    price: 70,
   },
   {
     title: "Trois baies",
     images: ["/images/baie-des-sakalava2.jpg", "/images/pigeon1.jpg", "/images/pigeon5.jpg"],
     shortDesc:
-      "Partez en randonnée dans un parc national riche en cascades et faune.",
+      "Découvrir les baies des Dunes, baies des Pigeons et Sakalava. ",
     fullDesc:
-      "La Montagne d’Ambre est un parc verdoyant à l’intérieur des terres près de Diego‑Suarez. Cette excursion vous fait traverser des forêts tropicales, des cascades naturelles, et des points de vue exceptionnels.",
-    maxPeople: 7,
-    price: 60,
+      "Chaque baie a son charme : idéale pour la baignade, la randonnée ou simplement admirer le panorama. C’est un lieu parfait pour les amateurs de nature, de photos et de moments de détente loin de l’agitation urbaine. Les couchers de soleil y sont particulièrement magnifiques, offrant un décor féerique sur l’océan.",
+    maxPeople: 5,
+    price: 70,
   },
 ];
 
@@ -85,7 +92,7 @@ export default function ExcursionsPage() {
   }, []);
 
   return (
-    <main className="pt-11 pb-16 bg-white text-gray-800">
+    <main className="pt-12 pb-16 bg-white text-gray-800">
 
       {/* HERO */}
       <section className="relative h-75 rounded-2xl w-full overflow-hidden mb-12">
@@ -97,12 +104,15 @@ export default function ExcursionsPage() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center text-white px-6 py-20">
-          <h1 className="text-4xl font-extrabold mb-2">
-            Excursions à <span className="text-[#F0C300]">Antsiranana</span>
-          </h1>
-          <p className="text-lg max-w-2xl mx-auto">
-            Découvrez les plus belles excursions naturelles et culturelles du nord de Madagascar.
-          </p>
+          <div className={mainFont.className}>
+              <h1 className="text-4xl font-extrabold mb-2">
+                  Excursions à <span className="text-[#F0C300]">Antsiranana</span>
+              </h1>
+              <p className="text-lg max-w-2xl mx-auto">
+                  Découvrez les plus belles excursions naturelles et culturelles du nord de Madagascar.
+              </p>
+          </div>
+          
         </div>
       </section>
 
@@ -142,7 +152,6 @@ export default function ExcursionsPage() {
                   {expanded === idx ? "Voir moins" : "Voir plus"}
                 </button>
               </div>
-
               {/* PRIX + PERSONNES */}
               <div className="mt-4 flex justify-between gap-3">
                 <div className="flex-1 text-center bg-yellow-100 text-yellow-800 font-semibold py-1 px-3 rounded-full">
