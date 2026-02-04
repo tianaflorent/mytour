@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
+import { Noto_Sans_KR } from "next/font/google";
+
+const mainFont = Noto_Sans_KR({
+  weight: ["400", "500", "700"],
+});
+
+
 export default function ReservationClient() {
   const searchParams = useSearchParams();
   const excursionParam = searchParams.get("excursion");
@@ -58,9 +65,12 @@ export default function ReservationClient() {
   return (
     <main className="pt-28 pb-16 bg-linear-to-br from-orange-50 via-white to-blue-50 min-h-screen">
       <div className="max-w-3xl mx-auto px-6">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-8">
-          Réserver votre excursion
-        </h1>
+        <div className={mainFont.className}>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-8">
+               Réserver votre excursion
+            </h1>
+        </div>
+        
 
         <form
           onSubmit={handleSubmit}
