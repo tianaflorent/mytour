@@ -3,6 +3,20 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import { Hind } from "next/font/google";
+
+import { Noto_Sans_JP } from "next/font/google";
+
+const japon = Noto_Sans_JP({
+  weight: ["400", "500", "700"],
+});
+
+
+const mainFont = Hind({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600"],
+});
+
 const albums = [
   {
     title: " Tsingy rouge",
@@ -68,7 +82,6 @@ const albums = [
       "/images/13.jpg",
       "/images/31.jpg",
       "/images/orangea.jpg",
-      "/images/pigeon2.WEBP",
       "/images/baie-des-sakalava.jpg",
     ],
   },
@@ -89,7 +102,7 @@ export default function GaleriesPage() {
   };
 
   return (
-    <main className="pt-8 pb-20 px-6 max-w-7xl mx-auto relative">
+    <main className="pt-10 pb-20 px-6 max-w-7xl mx-auto relative">
       {/* Page title */}
       
       {/* <section className="relative h-[200px]   rounded-2xl  overflow-hidden mb-1">
@@ -120,12 +133,14 @@ export default function GaleriesPage() {
   {/* Contenu centré */}
   <div className="relative z-10 h-full flex items-center justify-center">
     <div className="text-center px-6">
-      <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-3">
-        Notre <span className="text-[#F0C300]">GALERIE</span>
-      </h1>
-      <p className="text-white/90 text-lg max-w-2xl mx-auto">
-        Découvrez en images les paysages et trésors du nord de Madagascar
-      </p>
+      <div className={mainFont.className}>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-3">
+            Notre <span className="text-[#F0C300]">GALERIE</span>
+          </h1>
+          <p className="text-white/90 text-lg max-w-2xl mx-auto">
+            Découvrez en images les paysages et trésors du nord de Madagascar
+          </p>
+      </div>
     </div>
   </div>
 </section>
@@ -136,7 +151,7 @@ export default function GaleriesPage() {
 
 
       {/* Albums */}
-      <div className="space-y-20">
+      <div className="space-y-10">
         {albums.map((album, albumIndex) => {
           const isExpanded = expandedAlbums.includes(albumIndex);
           const photosToShow = isExpanded
@@ -148,10 +163,13 @@ export default function GaleriesPage() {
           return (
             <section key={albumIndex}>
               {/* Album header */}
-              <div className="flex items-center  justify-center mt-8 mb-4">
-                <h2 className="text-2xl font-bold text-black font-mono ">
-                  {album.title}
-                </h2>
+              <div className="flex items-center  justify-center  mt-8 mb-4">
+                  <div className={japon.className}>
+                      <h2 className="text-2xl font-bold text-black  ">
+                        {album.title}
+                      </h2>
+                  </div>
+                
               </div>
 
               {/* Photos grid */}
