@@ -2,11 +2,22 @@
 import { useEffect, useRef, useState } from "react";
 import ImageSlider from "./ImageSlider";
 import { Monitor, Home, Truck } from "lucide-react";
+
+
+
+import { Hind } from "next/font/google";
+
+const mainFont = Hind({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600"],
+});
+
+
 const photos = [
   {
     src: "/images/emerald3.jpg", // <-- première image
     title: "Mer d'Emeraude",
-    description: "Découvrez les majestueux baobabs au coucher du soleil.",
+    description: "Explorez les eaux turquoise cristallines juste au nord de Diego‑Suarez.",
   },
   {
     src: "/images/tsingy1.jpg", // deuxième image
@@ -17,17 +28,17 @@ const photos = [
   {
     src: "/images/nosyhara3.jpg", // troisième image
     title: "Nosy Hara",
-    description: "Plages paradisiaques et eaux turquoise pour se détendre.",
+    description: "Nosy Hara, joyau du nord de Madagascar, offre des eaux turquoise, des falaises karstiques et une biodiversité marine unique.",
   },
   {
     src: "/images/mda.jpg", // troisième image
     title: "Montagne d'Ambre",
-    description: "Plages paradisiaques et eaux turquoise pour se détendre.",
+    description: "Partez en randonnée dans un parc national riche en cascades, faune et flore.",
   },
   {
     src: "/images/pigeon4.jpg", // troisième image
     title: "Trois baies",
-    description: "Plages paradisiaques et eaux turquoise pour se détendre.",
+    description: "Découvrir les baies des Dunes, baies des Pigeons et Sakalava.",
   },
 ];
 
@@ -145,15 +156,18 @@ export default function Hero() {
 
   {/* Contenu du Hero */}
   <div className="relative z-10 px-4 md:px-16 max-w-2xl pt-8 md:pt-32 text-white">
-    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-      Découvrez <span className="text-[#F0C300]">ANTSIRANANA</span>
+  <div className={mainFont.className}>
+    <h1 className="text-4xl md:text-6xl font-semibold tracking-wide leading-tight">
+    Découvrez <span className="text-[#F0C300]">ANTSIRANANA</span>
     </h1>
 
-    <p className="mt-5  text-white leading-relaxed">
-          Partez à la découverte d’Antsiranana, une terre d’exception où la nature règne en maître.  
-          Entre forêts luxuriantes, baies spectaculaires et plages sauvages, la région abrite  
-          une faune et une flore uniques, riches en espèces endémiques de Madagascar.
+    <p className="mt-5 text-white text-base md:text-lg leading-loose">
+    Partez à la découverte d’Antsiranana, une terre d’exception où la nature règne en maître.
+    Entre forêts luxuriantes, baies spectaculaires et plages sauvages, la région abrite
+    une faune et une flore uniques, riches en espèces endémiques de Madagascar.
     </p>
+  </div>
+
 
     <a href="/Contact">
       <button className="mt-8 cursor-pointer bg-[#F0C300] text-black font-medium px-6 py-3 rounded-full hover:bg-[#72ca5c] hover:text-white-900 transition">
@@ -171,7 +185,10 @@ export default function Hero() {
       {/* GALERIE */}
       <section className="py-5 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-medium mb-8 text-center">Excursions</h2>
+        
+       <h2 className="text-3xl font-medium mb-8 text-center">Excursions</h2>
+          
+          
 
           {/* Desktop: slider */}
 
@@ -344,15 +361,15 @@ export default function Hero() {
 
         return (
           <div
-            key={index}
-            data-index={index}
-            ref={(el) => {
-              cardsRef.current[index] = el;
-            }}
-            className={`rounded-3xl p-8 bg-linear-to-br ${bgGradient} backdrop-blur-xl shadow-xl border border-black/10 transition-transform duration-300 ${
-            visible[index] ? "opacity-100 animate-fade-up" : "opacity-0"
-            }`}
-            >
+  key={index}
+  data-index={index}
+  ref={(el) => {
+    cardsRef.current[index] = el;
+  }}
+  className={`rounded-3xl p-8 bg-linear-to-br ${bgGradient} backdrop-blur-xl shadow-xl border border-black/10 transition-transform duration-300 ${
+    visible[index] ? "opacity-100 animate-fade-up" : "opacity-0"
+  }`}
+>
 
             <div
               className="w-12 h-12 flex items-center justify-center rounded-full mb-4"
